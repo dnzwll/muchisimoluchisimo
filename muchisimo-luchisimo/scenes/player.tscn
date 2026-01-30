@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dh4735gug57p0"]
+
+[ext_resource type="Texture2D" uid="uid://bkyc2uesvdss5" path="res://assets/luchaguywalk.png" id="1_3vyb7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dqkch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3vyb7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2els")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlg0r"]
+
+[node name="Node2D" type="CharacterBody2D" unique_id=157303561]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1434692373]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1519828379]
+sprite_frames = SubResource("SpriteFrames_dqkch")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=689610124]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=782813804]
+shape = SubResource("RectangleShape2D_qlg0r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1837955185]

@@ -11,8 +11,15 @@ config_version=5
 [application]
 
 config/name="MuchisimoLuchisimo"
+run/main_scene="uid://bfykylts3mcwc"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/stretch/mode="canvas_items"
 
 [physics]
 
@@ -20,4 +27,5 @@ config/icon="res://icon.svg"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
