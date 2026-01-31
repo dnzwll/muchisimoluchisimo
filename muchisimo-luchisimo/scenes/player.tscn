@@ -2,9 +2,20 @@
 
 [ext_resource type="Texture2D" uid="uid://bkyc2uesvdss5" path="res://assets/luchaguywalk.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dnksuxj4dhjww" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://cmlbcrpshkx4" path="res://assets/luchakick.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://r5vvpuvfn4ue" path="res://assets/luchagrab.png" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://ctxu5rcprybhw" path="res://assets/luchathrow.png" id="5_tuyoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 size = Vector2(21, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -14,10 +25,24 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("1_3vyb7")
 region = Rect2(32, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("5_tuyoq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("5_tuyoq")
+region = Rect2(32, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_dqkch"]
 animations = [{
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}],
+"loop": false,
 "name": &"attack",
 "speed": 5.0
 }, {
@@ -26,8 +51,11 @@ animations = [{
 "name": &"finisher",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qlg0r")
+}],
+"loop": false,
 "name": &"grab",
 "speed": 5.0
 }, {
@@ -58,8 +86,14 @@ animations = [{
 "name": &"run",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
+}],
+"loop": false,
 "name": &"throw",
 "speed": 5.0
 }]
@@ -76,7 +110,7 @@ shape = SubResource("RectangleShape2D_3vyb7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1519828379]
 sprite_frames = SubResource("SpriteFrames_dqkch")
-animation = &"jump"
+animation = &"grab"
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=689610124]
 

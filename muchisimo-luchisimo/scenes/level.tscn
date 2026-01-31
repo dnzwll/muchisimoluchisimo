@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c770otk3mw88" path="res://assets/tom-brottningsportarena-för-sportvektor-boxningsring-dramatisk-bakgrund-113076685.webp" id="1_2q6dc"]
 [ext_resource type="PackedScene" uid="uid://dh4735gug57p0" path="res://scenes/player.tscn" id="2_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://nn2svkmlehib" path="res://scenes/enemy.tscn" id="3_w8frs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w7c3h"]
 
@@ -31,3 +32,6 @@ shape = SubResource("RectangleShape2D_w8frs")
 
 [node name="Node2D" parent="." unique_id=157303561 instance=ExtResource("2_w7c3h")]
 position = Vector2(36, 128)
+
+[node name="enemy" parent="." unique_id=450573437 instance=ExtResource("3_w8frs")]
+position = Vector2(256, 127)
