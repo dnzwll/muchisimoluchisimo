@@ -94,7 +94,7 @@ func throw_enemy():
 	if grabbed_enemy == null:
 		return
 
-	var dir := sprite.flip_h ? -1 : 1
+	var dir := -1 if sprite.flip_h else 1
 	grabbed_enemy.throw(Vector2(throw_force.x * dir, throw_force.y))
 	gain_mask_power(20)
 

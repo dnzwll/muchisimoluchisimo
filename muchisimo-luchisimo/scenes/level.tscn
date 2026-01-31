@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cbnkepqnan5ac"]
+
+[ext_resource type="Texture2D" uid="uid://c770otk3mw88" path="res://assets/tom-brottningsportarena-för-sportvektor-boxningsring-dramatisk-bakgrund-113076685.webp" id="1_2q6dc"]
+[ext_resource type="PackedScene" uid="uid://dh4735gug57p0" path="res://scenes/player.tscn" id="2_w7c3h"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w7c3h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
+size = Vector2(322, 20)
+
+[node name="Node2D" type="Node2D" unique_id=1082916001]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=717785029]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1315373768]
+motion_scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1826833409]
+scale = Vector2(0.4, 0.30494037)
+texture = ExtResource("1_2q6dc")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=348346670]
+physics_material_override = SubResource("PhysicsMaterial_w7c3h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=835559441]
+position = Vector2(160, 169)
+shape = SubResource("RectangleShape2D_w8frs")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=23376230]
+
+[node name="Node2D" parent="." unique_id=157303561 instance=ExtResource("2_w7c3h")]
+position = Vector2(36, 128)
