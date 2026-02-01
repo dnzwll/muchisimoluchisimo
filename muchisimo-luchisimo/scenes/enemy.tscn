@@ -81,15 +81,17 @@ size = Vector2(20, 29)
 size = Vector2(20, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md484"]
-size = Vector2(14, 29)
+size = Vector2(18, 29)
 
 [node name="enemy" type="CharacterBody2D" unique_id=450573437]
 collision_layer = 128
 script = ExtResource("1_7p1mj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=840712675]
+position = Vector2(-1, 0)
+scale = Vector2(0.9375, 1)
 sprite_frames = SubResource("SpriteFrames_c4w8v")
-animation = &"hit"
+animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1481393754]
 visible = false
@@ -97,22 +99,18 @@ position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_xwavj")
 
 [node name="HitArea" type="Area2D" parent="." unique_id=2110254464]
-visible = false
 collision_layer = 0
 collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea" unique_id=1770467718]
-visible = false
 position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_nenq2")
 
 [node name="DamageArea" type="Area2D" parent="." unique_id=1530997978]
-visible = false
 collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=702518146]
-visible = false
 position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_md484")
 

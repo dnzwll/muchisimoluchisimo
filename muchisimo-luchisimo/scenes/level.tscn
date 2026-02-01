@@ -38,7 +38,7 @@ position = Vector2(36, 128)
 position = Vector2(256, 127)
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=388047116]
-position = Vector2(159, 16)
+position = Vector2(286, 84)
 script = ExtResource("4_mx8sn")
 enemy_scene = ExtResource("3_w8frs")
 enemies_per_wave = 4
