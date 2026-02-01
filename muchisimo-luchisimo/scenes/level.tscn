@@ -3,11 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://c770otk3mw88" path="res://assets/tom-brottningsportarena-för-sportvektor-boxningsring-dramatisk-bakgrund-113076685.webp" id="1_2q6dc"]
 [ext_resource type="PackedScene" uid="uid://dh4735gug57p0" path="res://scenes/player.tscn" id="2_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://nn2svkmlehib" path="res://scenes/enemy.tscn" id="3_w8frs"]
+[ext_resource type="Script" uid="uid://4m4mik2xfhuo" path="res://scripts/enemy_spawner.gd" id="4_mx8sn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w7c3h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
-size = Vector2(322, 20)
+size = Vector2(320, 20)
 
 [node name="Node2D" type="Node2D" unique_id=1082916001]
 
@@ -16,22 +17,28 @@ size = Vector2(322, 20)
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1315373768]
 motion_scale = Vector2(0.2, 0.2)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1826833409]
+[node name="background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1826833409]
 scale = Vector2(0.4, 0.30494037)
 texture = ExtResource("1_2q6dc")
 centered = false
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=348346670]
+[node name="Floor" type="StaticBody2D" parent="." unique_id=348346670]
 physics_material_override = SubResource("PhysicsMaterial_w7c3h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=835559441]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=835559441]
 position = Vector2(160, 169)
 shape = SubResource("RectangleShape2D_w8frs")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=23376230]
+[node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=23376230]
 
 [node name="Node2D" parent="." unique_id=157303561 instance=ExtResource("2_w7c3h")]
 position = Vector2(36, 128)
 
 [node name="enemy" parent="." unique_id=450573437 instance=ExtResource("3_w8frs")]
 position = Vector2(256, 127)
+
+[node name="EnemySpawner" type="Node2D" parent="." unique_id=388047116]
+position = Vector2(159, 16)
+script = ExtResource("4_mx8sn")
+enemy_scene = ExtResource("3_w8frs")
+enemies_per_wave = 4

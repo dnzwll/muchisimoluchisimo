@@ -1,7 +1,26 @@
 [gd_scene format=3 uid="uid://nn2svkmlehib"]
 
 [ext_resource type="Script" uid="uid://5suj5et8krby" path="res://scripts/enemy.gd" id="1_7p1mj"]
+[ext_resource type="Texture2D" uid="uid://bj5tnc0m3yt8c" path="res://assets/luchaattack.png" id="2_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://cbku68p416b83" path="res://assets/enemylucha.png" id="2_md0e3"]
+[ext_resource type="Texture2D" uid="uid://dwgrgpa7ukpx0" path="res://assets/enemygrabbed.png" id="3_5uy6h"]
+[ext_resource type="Texture2D" uid="uid://ckweugih57qkg" path="res://assets/enemyhurt.png" id="4_c4w8v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4w8v"]
+atlas = ExtResource("2_4ra3w")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwavj"]
+atlas = ExtResource("2_4ra3w")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nenq2"]
+atlas = ExtResource("3_5uy6h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md484"]
+atlas = ExtResource("4_c4w8v")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
 atlas = ExtResource("2_md0e3")
@@ -15,13 +34,43 @@ region = Rect2(32, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_c4w8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwavj")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nenq2")
+}],
+"loop": false,
+"name": &"grabbed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md484")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md484")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_4ra3w")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5uy6h")
 }],
-"loop": true,
-"name": &"default",
+"loop": false,
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -35,26 +84,35 @@ size = Vector2(20, 29)
 size = Vector2(14, 29)
 
 [node name="enemy" type="CharacterBody2D" unique_id=450573437]
-collision_layer = 5
-collision_mask = 3
+collision_layer = 128
 script = ExtResource("1_7p1mj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=840712675]
 sprite_frames = SubResource("SpriteFrames_c4w8v")
+animation = &"hit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1481393754]
+visible = false
 position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_xwavj")
 
 [node name="HitArea" type="Area2D" parent="." unique_id=2110254464]
+visible = false
+collision_layer = 0
+collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea" unique_id=1770467718]
+visible = false
 position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_nenq2")
 
 [node name="DamageArea" type="Area2D" parent="." unique_id=1530997978]
+visible = false
+collision_layer = 8
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=702518146]
+visible = false
 position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_md484")
 
